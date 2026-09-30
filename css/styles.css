@@ -1,0 +1,301 @@
+/* PLUMBING_V 1 — reset tecnico canonico (Toolkit/boilerplate/plumbing.css) */
+[hidden] { display: none !important; }
+img { max-width: 100%; height: auto; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* ══════════ IL MIO CALZOLAIO — Via dell'Unione 3 ══════════
+   «Tacco Express. Riparazioni immediate.» (il loro cartello). L'insegna Liberty bordeaux sulla lastra bianca nella fascia d'oro, il
+   telaio verde della vetrina, il granito della facciata, il giallo del cartello. La firma è il tacchetto rifatto sul piede di ferro
+   (_imc_firma.mjs). */
+:root {
+  --bordeaux: #8E1D34;
+  --bordeaux-scuro: #6E1428;
+  --lastra: #F6F4EF;
+  --oro: #D2B865;
+  --oro-scuro: #A88E3E;
+  --verde: #16402F;
+  --verde-scuro: #0F2F22;
+  --granito: #9A958B;
+  --granito-chiaro: #C9C4B9;
+  --giallo: #F4D41C;
+  --inchiostro: #1B1A18;
+  --grigio: #4D4A45;
+  --aperto: #1B6B45;
+  --f-insegna: 'Metamorphous', Georgia, serif;
+  --f-titoli: 'Philosopher', Georgia, serif;
+  --f-cartello: 'Six Caps', 'Arial Narrow', sans-serif;
+  --f-testo: 'Hind Siliguri', 'Segoe UI', Arial, sans-serif;
+  --gutter: 16px;
+  --testata-h: 76px;
+}
+@media (min-width: 760px) { :root { --gutter: 24px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--inchiostro); font: 400 1.12rem/1.62 var(--f-testo); background: var(--lastra); }
+a { color: var(--bordeaux); }
+b, strong { font-weight: 600; }
+.salta { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; background: #fff; color: #111; font-weight: 600; text-decoration: none; }
+.salta:focus { top: 10px; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+section[id] { scroll-margin-top: calc(var(--testata-h) + 14px); }
+.intero { white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--bordeaux); outline-offset: 2px; }
+/* finché i caratteri non arrivano il ripiego è più largo: una parola lunga va a capo invece di uscire (riserva-check, #233) */
+h1, h2, h3, .marchio__lastra, .piede__marchio { overflow-wrap: anywhere; }
+
+/* ── la testata: il telaio verde e l'insegna (lastra bianca nella fascia d'oro) ── */
+.testata { position: sticky; top: 0; z-index: 50; background: var(--verde); box-shadow: inset 0 -4px 0 var(--verde-scuro), 0 6px 16px -10px rgba(0, 0, 0, .6); }
+.testata__dentro { display: flex; align-items: center; gap: 10px; max-width: 1240px; margin: 0 auto; padding: 9px var(--gutter) 12px; min-height: 76px; }
+.marchio { display: inline-flex; min-width: 0; flex: 0 1 auto; padding: 6px 8px; background: var(--oro); border-radius: 2px; text-decoration: none; box-shadow: inset 0 0 0 1px var(--oro-scuro); }
+.marchio__lastra { display: block; padding: 4px 14px 2px; background: var(--lastra); color: var(--bordeaux); font: 400 1.5rem/1.15 var(--f-insegna); white-space: nowrap; box-shadow: inset 0 0 0 2px #A8ABA7, inset 0 0 0 4px var(--lastra); }
+.voci { display: none; }
+.testata__azioni { margin-left: auto; display: flex; align-items: center; gap: 6px; flex: none; }
+.lingue { display: flex; }
+.lingue button { min-width: 34px; min-height: 38px; padding: 0 5px; border: 1px solid rgba(210, 184, 101, .7); background: transparent; color: #FFFFFF; font: 600 .9rem var(--f-testo); cursor: pointer; }
+.lingue button + button { border-left: 0; }
+.lingue button.is-on { background: var(--oro); border-color: var(--oro); color: var(--inchiostro); }
+.chiama { display: none; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 2px; background: var(--giallo); color: var(--inchiostro); font: 600 1.02rem var(--f-testo); text-decoration: none; }
+.chiama:hover { background: #FFE45A; }
+.burger { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 10px; border: 1px solid rgba(210, 184, 101, .7); border-radius: 2px; background: transparent; cursor: pointer; }
+.burger span { display: block; height: 2px; background: #FFFFFF; transition: transform .2s, opacity .2s; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-mobile { position: fixed; top: var(--testata-h); left: 0; right: 0; z-index: 49; max-height: calc(100vh - var(--testata-h)); overflow-y: auto; padding: 10px var(--gutter) 22px; background: var(--verde-scuro); box-shadow: 0 10px 24px rgba(0, 0, 0, .3); }
+.menu-mobile a { display: block; padding: 11px 2px 9px; border-bottom: 1px solid rgba(210, 184, 101, .25); color: #FFFFFF; font: 400 1.4rem/1.3 var(--f-titoli); text-decoration: none; }
+.menu-mobile__tel { display: flex !important; justify-content: center; gap: 8px; margin-top: 14px; border: 0 !important; border-radius: 2px; background: var(--giallo); color: var(--inchiostro) !important; font: 600 1.12rem/1.3 var(--f-testo) !important; padding: 13px 8px !important; }
+
+/* ── l'apertura: il granito della facciata e il cartello giallo ── */
+.apertura { display: grid; gap: 30px; padding: 40px max(var(--gutter), calc((100% - 1240px) / 2)) 56px; background-color: var(--granito); background-image: radial-gradient(rgba(255, 255, 255, .16) 1px, transparent 1.6px), radial-gradient(rgba(27, 26, 24, .12) 1px, transparent 1.6px); background-size: 7px 7px, 11px 11px; background-position: 0 0, 3px 5px; }
+.apertura__sopra { margin: 0 0 16px; font: 600 1rem/1.4 var(--f-testo); letter-spacing: .1em; text-transform: uppercase; color: var(--inchiostro); }
+.cartello { display: inline-flex; flex-direction: column; align-items: center; max-width: 100%; margin: 0 0 24px; padding: 14px 30px 12px; background: var(--giallo); border: 3px solid var(--inchiostro); box-shadow: 6px 6px 0 rgba(27, 26, 24, .35); color: var(--inchiostro); text-align: center; }
+.cartello__grande { display: block; font: 400 clamp(4.6rem, 3rem + 7vw, 8.4rem)/.92 var(--f-cartello); letter-spacing: .03em; text-transform: uppercase; }
+.cartello__piccolo { display: block; margin-top: 6px; padding-top: 6px; border-top: 2px solid var(--inchiostro); font: 400 clamp(1.8rem, 1.3rem + 1.8vw, 2.7rem)/1 var(--f-cartello); letter-spacing: .12em; text-transform: uppercase; }
+.apertura__frase { max-width: 31em; margin: 0 0 24px; font-size: 1.18rem; }
+.citazione { position: relative; max-width: 30em; margin: 0 0 24px; padding: 14px 20px 12px; background: var(--lastra); box-shadow: inset 0 0 0 2px #A8ABA7, inset 0 0 0 4px var(--lastra), 0 0 0 5px var(--oro); }
+.citazione p { margin: 0; font: 400 clamp(1.3rem, 1.1rem + .7vw, 1.6rem)/1.35 var(--f-titoli); color: var(--bordeaux); }
+.citazione footer { margin-top: 6px; font-size: 1rem; color: var(--grigio); }
+.voto { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin: 0; }
+.voto__n { font: 700 2.6rem/1 var(--f-titoli); color: var(--inchiostro); }
+.voto__su { font-size: 1.06rem; }
+.voto--sezione { margin: -4px 0 30px; }
+.stato { display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 0; font: 600 1.04rem/1.4 var(--f-testo); color: var(--inchiostro); }
+.stato::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .45; flex: none; }
+.stato.is-aperto { color: var(--inchiostro); }
+.stato.is-aperto::before { opacity: 1; background: var(--aperto); box-shadow: 0 0 0 3px rgba(27, 107, 69, .3); }
+.apertura__azioni { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.bottone { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 2px 22px 0; border: 2px solid var(--inchiostro); border-radius: 2px; background: transparent; color: var(--inchiostro); font: 600 1.1rem/1.1 var(--f-testo); text-align: center; text-decoration: none; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.bottone--pieno { border-color: var(--verde); background: var(--verde); color: #FFFFFF; }
+.bottone--pieno:hover { background: var(--verde-scuro); border-color: var(--verde-scuro); }
+.bottone--vuoto:hover { background: var(--inchiostro); color: #FFFFFF; }
+
+/* il tacchetto express: la firma */
+.apertura__firma { width: 100%; max-width: 640px; justify-self: center; }
+.calzoleria { margin: 0; -webkit-user-select: none; user-select: none; }
+.tacco__svg { border-radius: 3px; box-shadow: 0 0 0 8px var(--oro), 0 0 0 9px var(--oro-scuro), 0 26px 40px -24px rgba(27, 26, 24, .9); }
+.calzoleria__didascalia { min-height: 3em; margin: 24px 0 0; font-size: 1.08rem; line-height: 1.45; text-align: center; color: var(--inchiostro); }
+.calzoleria__d { display: none; }
+.calzoleria[data-modo="0"] .calzoleria__d[data-m="0"], .calzoleria[data-modo="1"] .calzoleria__d[data-m="1"], .calzoleria[data-modo="2"] .calzoleria__d[data-m="2"] { display: inline; }
+.calzoleria__modi { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+.calzoleria__modi button { min-height: 44px; padding: 2px 18px 0; border: 2px solid var(--inchiostro); border-radius: 2px; background: var(--lastra); color: var(--inchiostro); font: 600 1.06rem/1.1 var(--f-testo); cursor: pointer; }
+.calzoleria__modi button:hover { background: #FFFFFF; }
+.calzoleria__modi button[aria-pressed="true"] { background: var(--giallo); }
+/* senza JS il tacco non cambia: i bottoni restano nascosti col loro posto (#240) */
+.no-js .calzoleria__modi { visibility: hidden; }
+.apertura__nota { max-width: 36em; margin: 14px auto 0; font-size: 1rem; color: var(--inchiostro); text-align: center; }
+
+/* ── i capitoli ── */
+.capitolo { padding: 70px max(var(--gutter), calc((100% - 1180px) / 2)) 68px; }
+.capitolo--lastra { background: var(--lastra); }
+.etichetta { margin: 0; font: 600 .95rem/1.3 var(--f-testo); letter-spacing: .16em; text-transform: uppercase; color: var(--bordeaux); }
+.capitolo__titolo { max-width: 18em; margin: 8px 0 16px; font: 700 clamp(1.9rem, 1.3rem + 2.2vw, 2.9rem)/1.15 var(--f-titoli); color: var(--inchiostro); text-wrap: balance; }
+.capitolo__sotto { max-width: 42em; margin: 0 0 30px; font-size: 1.14rem; }
+figure { margin: 0; }
+figcaption { margin-top: 8px; font-size: 1rem; line-height: 1.45; color: var(--grigio); }
+.foto { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.foto img { display: block; width: 100%; height: auto; border-radius: 2px; }
+.taglio { font-style: normal; font-family: var(--f-testo); }
+
+/* i cassetti: la parete dietro il banco */
+.cassetti { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.cassetto { position: relative; display: grid; gap: 8px; padding: 18px 20px 42px; border-radius: 3px; background: #FFFFFF; box-shadow: inset 0 0 0 2px var(--granito-chiaro), inset 0 -8px 0 #EDEAE2, 0 10px 18px -16px rgba(27, 26, 24, .9); }
+.cassetto__targa { justify-self: start; padding: 3px 12px 1px; border: 2px solid var(--oro-scuro); border-radius: 2px; background: linear-gradient(#EFE3B6, var(--oro)); color: var(--inchiostro); font: 400 1.25rem/1.3 var(--f-titoli); box-shadow: 0 1px 0 #FFFFFF inset; }
+.cassetto p { margin: 0; }
+.cassetto__pomolo { position: absolute; left: 50%; bottom: 16px; width: 26px; height: 10px; margin-left: -13px; border-radius: 5px; background: var(--oro-scuro); box-shadow: inset 0 2px 0 var(--oro); }
+
+/* la vetrina: sul verde del telaio */
+.capitolo--verde { background: var(--verde); color: #FFFFFF; }
+.capitolo--verde .etichetta { color: var(--oro); }
+.capitolo--verde .capitolo__titolo { color: #FFFFFF; }
+.capitolo--verde figcaption { color: #DCE7E0; }
+.vetrina { display: grid; gap: 26px; align-items: start; }
+.vetrina__testo p { max-width: 32em; }
+.vetrina .foto img { box-shadow: 0 0 0 4px var(--oro); }
+.vetrina__porta { max-width: 300px; }
+
+/* l'orario del negozio: il foglio coi giorni colorati */
+.capitolo--granito { background-color: var(--granito); background-image: radial-gradient(rgba(255, 255, 255, .16) 1px, transparent 1.6px), radial-gradient(rgba(27, 26, 24, .12) 1px, transparent 1.6px); background-size: 7px 7px, 11px 11px; background-position: 0 0, 3px 5px; }
+.capitolo--granito .etichetta { color: var(--inchiostro); }
+.stato--settimana { margin: -4px 0 20px; }
+.foglio { max-width: 640px; padding: 22px 26px 18px; background: #FFFFFF; box-shadow: 0 0 0 10px #4A3F38, 0 16px 26px -12px rgba(27, 26, 24, .8); }
+.foglio__testa { margin: 0 0 10px; font: 600 1.05rem/1.3 var(--f-testo); letter-spacing: .12em; text-transform: uppercase; text-align: center; color: var(--inchiostro); }
+.orari__riga { display: grid; grid-template-columns: 7.4em minmax(0, 1fr) minmax(0, 1fr); gap: 8px; padding: 7px 8px; border-bottom: 1px solid #ECE8DF; font-weight: 600; }
+.orari__riga:last-child { border-bottom: 0; }
+.orari__riga--testa { font: italic 600 .95rem/1.3 var(--f-testo); letter-spacing: .08em; text-transform: uppercase; color: #3D4E8F; }
+.orari__riga--testa span:first-child { visibility: hidden; }
+.orari__riga.is-today { background: #FFF7CC; box-shadow: inset 4px 0 0 var(--giallo); }
+.g { text-transform: uppercase; letter-spacing: .04em; }
+.g--1, .g--6 { color: #B3232E; }
+.g--2 { color: #1F7358; }
+.g--3 { color: #1F4FA8; }
+.g--4 { color: #8A2F86; }
+.g--5 { color: #8A4A22; }
+.g--0 { color: var(--grigio); }
+.orari__nota { max-width: 36em; margin: 26px 0 0; font-size: 1.04rem; color: var(--inchiostro); }
+
+/* dicono */
+.recensioni { columns: 1; column-gap: 22px; margin: 0; padding: 0; list-style: none; }
+.recensione { break-inside: avoid; margin-bottom: 22px; padding: 22px 22px 18px; border-radius: 2px; background: #FFFFFF; box-shadow: inset 0 0 0 2px var(--granito-chiaro), 5px 5px 0 var(--oro); }
+.recensione__testo { margin: 0; font-size: 1.08rem; line-height: 1.55; }
+.recensione__chi { margin: 12px 0 0; font-size: 1rem; line-height: 1.4; color: var(--grigio); }
+.recensione__chi b { display: block; font: 400 1.14rem/1.3 var(--f-titoli); color: var(--bordeaux); }
+.dicono__nota { max-width: 46em; margin: 8px 0 0; font-size: 1.04rem; }
+.dicono__nota a { font-weight: 600; }
+
+/* dove */
+.dove { display: grid; gap: 30px; align-items: start; }
+.cartina { overflow: hidden; border-radius: 2px; box-shadow: 0 0 0 4px var(--verde); }
+.cartina iframe { display: block; width: 100%; height: 320px; border: 0; }
+.indirizzo { margin: 0 0 20px; }
+.indirizzo div { display: grid; grid-template-columns: 7.2em minmax(0, 1fr); gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(27, 26, 24, .16); }
+.indirizzo dt { font: 600 .9rem/1.9 var(--f-testo); letter-spacing: .12em; text-transform: uppercase; color: var(--bordeaux); }
+.indirizzo dd { margin: 0; overflow-wrap: anywhere; }
+.dove__azioni { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+
+/* domande */
+.domande { max-width: 840px; }
+.domande details { border-bottom: 2px solid var(--granito-chiaro); }
+.domande summary { padding: 14px 4px 10px; font: 400 1.3rem/1.3 var(--f-titoli); color: var(--inchiostro); cursor: pointer; }
+.domande details p { max-width: 46em; margin: 0 0 16px; padding: 0 4px; }
+
+/* ── la chiusura: di nuovo l'insegna sul verde ── */
+.piede { background: var(--verde); color: #FFFFFF; box-shadow: inset 0 4px 0 var(--verde-scuro); }
+.piede__dentro { max-width: 900px; margin: 0 auto; padding: 46px var(--gutter) 100px; text-align: center; }
+.piede__marchio { display: inline-block; margin: 0 0 18px; padding: 8px 10px; background: var(--oro); border-radius: 2px; }
+.piede__marchio span { display: block; padding: 6px 18px 3px; background: var(--lastra); color: var(--bordeaux); font: 400 2.1rem/1.1 var(--f-insegna); box-shadow: inset 0 0 0 2px #A8ABA7, inset 0 0 0 4px var(--lastra); }
+.piede__dove, .piede__orario { margin: 0 0 8px; }
+.piede a { color: #FFFFFF; }
+.piede__cred { max-width: 54em; margin: 18px auto 10px; font-size: 1rem; color: #DCE7E0; }
+.piede__su { font-weight: 600; }
+
+/* ── reveal (plumbing) ── */
+.js .reveal { opacity: 0; }
+.js .reveal.in-view { opacity: 1; }
+html:not(.js) .reveal { opacity: 1; }
+.reduced-motion .reveal { opacity: 1 !important; }
+
+/* ── la barra e la lightbox ── */
+.action-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1fr 1fr; background: var(--verde-scuro); box-shadow: 0 -4px 0 var(--oro); transform: translateY(110%); transition: transform .25s; }
+.action-bar.is-visible { transform: translateY(0); }
+.action-bar a { display: flex; align-items: center; justify-content: center; min-height: 54px; color: #fff; font: 600 1.08rem var(--f-testo); text-decoration: none; }
+.action-bar a:first-child { background: var(--verde); }
+#lightbox { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(20, 20, 18, .95); }
+#lightbox[hidden] { display: none !important; }
+#lightbox img { width: auto; max-width: min(1400px, 100%); max-height: 88vh; }
+#lightboxClose { position: absolute; top: 14px; right: 16px; width: 48px; height: 48px; border: 1px solid rgba(255, 255, 255, .6); border-radius: 50%; background: transparent; color: #fff; font-size: 32px; line-height: 1; cursor: pointer; }
+
+/* ── le larghezze ── */
+@media (max-width: 379px) {
+  .testata__dentro { gap: 6px; }
+  .lingue button { min-width: 31px; }
+  .marchio { padding: 4px 5px; }
+  .marchio__lastra { padding: 3px 8px 1px; font-size: 1.12rem; }
+  .stato { font-size: .96rem; }
+  .calzoleria__modi button { padding: 2px 12px 0; }
+  .bottone { padding: 2px 16px 0; }
+  .cartello { padding: 12px 18px 10px; }
+}
+/* sul telefono l'intestazione degli orari in minuscolo e più piccola, la colonna dei giorni più stretta: «Pomeriggio» ci sta anche col
+   carattere di riserva (troncati, riserva-check) */
+@media (max-width: 559px) {
+  .foglio { padding: 18px 10px 14px; }
+  .orari__riga { grid-template-columns: 6.4rem minmax(0, 1fr) minmax(0, 1fr); gap: 4px 8px; padding: 7px 4px; }
+  .g { font-size: .96rem; letter-spacing: 0; }
+  .orari__riga--testa { font-size: .82rem; letter-spacing: 0; text-transform: none; }
+}
+@media (min-width: 560px) {
+  .chiama { display: inline-flex; }
+  .cassetti { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 760px) {
+  .action-bar { display: none; }
+  .piede__dentro { padding-bottom: 50px; }
+  .recensioni { columns: 2; }
+  .dove { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  .cartina iframe { height: 360px; }
+  .vetrina { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .vetrina__testo { grid-column: 1 / -1; }
+  .vetrina__porta { max-width: none; }
+}
+@media (min-width: 960px) {
+  .apertura { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: 46px; }
+  .cassetti { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* la vetrina alta a sinistra, il testo e la porta a destra: colonne proporzionali alle foto (#256) */
+  .vetrina { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); grid-template-rows: auto 1fr; gap: 30px 40px; }
+  .vetrina__testo { grid-column: 2; grid-row: 1; }
+  .vetrina__grande { grid-column: 1; grid-row: 1 / span 2; }
+  .vetrina__porta { grid-column: 2; grid-row: 2; max-width: 300px; }
+}
+@media (min-width: 1060px) {
+  .testata__dentro { gap: 16px; }
+  .voci { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-left: 30px; }
+  .voci a { padding: 4px 1px 2px; color: #FFFFFF; font: 600 1.08rem var(--f-testo); text-decoration: none; }
+  .voci a:hover, .voci a[aria-current="true"] { color: var(--oro); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
+  .burger { display: none; }
+  .recensioni { columns: 3; }
+}
+
+/*TACCO*/
+/* il tacchetto express — generato da _imc_firma.mjs: non modificare a mano */
+.tacco__svg { display: block; width: 100%; height: auto; overflow: hidden; background: #F6F4EF; }
+.lastra { fill: #F6F4EF; }
+.bordino { fill: none; stroke: #A8ABA7; stroke-width: 3; }
+.banco { fill: #5E1A20; }
+.banco__filo { fill: #7E2A33; }
+.banco__venature { fill: none; stroke: #4E141A; stroke-width: 2.5; }
+.servito { filter: drop-shadow(3px 6px 4px rgba(27, 26, 24, .35)); }
+.ferro { fill: #2E2F31; }
+.tomaia { stroke: #1B1A18; stroke-width: 2; stroke-linejoin: round; }
+.suola { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.tacco { stroke: #1B1A18; stroke-width: 2; stroke-linejoin: round; }
+.modo--donna .tomaia { fill: #8E1D34; } .modo--donna .tacco { fill: #7A1830; } .modo--donna .suola { stroke: #C9A77A; stroke-width: 5; }
+.modo--uomo .tomaia { fill: #7A4424; } .modo--uomo .tacco { fill: #5A3A26; } .modo--uomo .suola { stroke: #3A2A20; stroke-width: 8; }
+.modo--stivale .tomaia { fill: #2A2624; } .modo--stivale .tacco { fill: #3A3431; } .modo--stivale .suola { stroke: #151312; stroke-width: 7; }
+.tacco__strati { fill: none; stroke: #3E2818; stroke-width: 1.5; }
+.fodera { fill: none; stroke: #D9C3A5; stroke-width: 3; stroke-linecap: round; }
+.lacci { fill: none; stroke: #EFE3CF; stroke-width: 2.5; stroke-linecap: round; }
+.stivale__cucitura { fill: none; stroke: #5A524D; stroke-width: 1.5; stroke-dasharray: 4 3; }
+.tacchetto__consumato { fill: #4A4642; stroke: #1B1A18; stroke-width: 1.2; }
+.tacchetto__chiodo { fill: #A9AEB3; }
+.tacchetto__chiodi { fill: none; stroke: #A9AEB3; stroke-width: 2; stroke-linecap: round; }
+.tacchetto__nuovo { fill: #1B1A18; }
+.tacchetto__luce { fill: none; stroke: #6A6560; stroke-width: 1.2; stroke-linecap: round; }
+.colpi { fill: none; stroke: #1B1A18; stroke-width: 2.5; stroke-linecap: round; }
+.cartellino__filo { fill: none; stroke: #1B1A18; stroke-width: 1.4; }
+.cartellino__carta { fill: #F4D41C; stroke: #1B1A18; stroke-width: 1.5; }
+.cartellino__buco { fill: #F6F4EF; stroke: #1B1A18; stroke-width: 1.2; }
+.cartellino__scritta { font: 400 22px/1 'Six Caps', 'Arial Narrow', sans-serif; letter-spacing: 1px; fill: #1B1A18; }
+.martello { filter: drop-shadow(2px 4px 3px rgba(27, 26, 24, .35)); }
+.martello__manico { fill: #B07A45; stroke: #6E4522; stroke-width: 1.5; }
+.martello__ghiera { fill: #8C8F93; }
+.martello__testa { fill: #3B3C3F; stroke: #1B1A18; stroke-width: 1.5; }
+.calzoleria[data-modo="0"] .modo:not([data-m="0"]) { display: none; }
+.calzoleria[data-modo="1"] .modo:not([data-m="1"]) { display: none; }
+.calzoleria[data-modo="2"] .modo:not([data-m="2"]) { display: none; }
+.firma-attesa .vecchio[data-m="0"] { transform: none; opacity: 1; }
+.firma-attesa .nuovo[data-m="0"] { transform: translate(0px, -70px); opacity: 0; }
+.firma-attesa .cartellino[data-m="0"] { opacity: 0; }
+/*/TACCO*/
