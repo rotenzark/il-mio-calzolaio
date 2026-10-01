@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <script>(function(){var r=document.documentElement;r.classList.remove('no-js');
 /* la firma: finché main.js non parte c'è il tacchetto consumato; se il codice non arriva, dopo 2,5 s c'è quello nuovo */
 try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('firma-attesa');window.__attesaTacco=setTimeout(function(){r.classList.remove('firma-attesa')},2500)}}catch(e){}})()</script>
@@ -20,15 +21,74 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Metamorphous&amp;family=Philosopher:wght@400;700&amp;family=Six+Caps&amp;family=Hind+Siliguri:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css?v=1">
 <link rel="stylesheet" href="css/styles.css?v=1">
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="js/main.js?v=1" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Il Mio Calzolaio","description":"Calzolaio in Via dell'Unione 3 a Milano, fra Via Torino e il Duomo: Tacco Express, riparazioni immediate; tacchi e sopratacchi, suole e risuolature, duplicazione chiavi, cinture e borse.","url":"https://rotenzark.github.io/il-mio-calzolaio/","image":"https://rotenzark.github.io/il-mio-calzolaio/img/og.jpg","telephone":"+39 02 8058 1099","address":{"@type":"PostalAddress","streetAddress":"Via dell'Unione 3","postalCode":"20122","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"},"geo":{"@type":"GeoCoordinates","latitude":45.46225,"longitude":9.18734},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday"],"opens":"14:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"14:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"15:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:00","closes":"14:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"76","bestRating":"5"}}
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Il Mio Calzolaio",
+  "description": "Calzolaio in Via dell'Unione 3 a Milano, fra Via Torino e il Duomo: Tacco Express, riparazioni immediate; tacchi e sopratacchi, suole e risuolature, duplicazione chiavi, cinture e borse.",
+  "url": "https://rotenzark.github.io/il-mio-calzolaio/",
+  "image": "https://rotenzark.github.io/il-mio-calzolaio/img/og.jpg",
+  "telephone": "+39 02 8058 1099",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via dell'Unione 3",
+    "postalCode": "20122",
+    "addressLocality": "Milano",
+    "addressRegion": "MI",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.46225,
+    "longitude": 9.18734
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday"
+      ],
+      "opens": "14:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "14:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "15:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ]
+}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -206,11 +266,11 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
     <h2 id="diconoT" class="capitolo__titolo" data-i18n="d.titolo">Onesti, veloci, e il tacco torna al suo posto</h2>
     <p class="voto voto--sezione"><b class="voto__n">4,7</b> <span class="voto__su" data-i18n="d.google">su Google, 76 recensioni</span></p>
     <ul class="recensioni">
-      <li class="recensione reveal"><p class="recensione__testo">«Vado spesso (per far risuolare scarpe o sistemare tacchi) e mi sono sempre trovata bene. Lavori eseguiti bene e onestá nel dire se un lavoro vale la pena o no. Lo consiglio!»</p><p class="recensione__chi"><b>Angela</b> <span data-i18n="d.g2m">Google, 2 mesi fa</span></p></li>
-      <li class="recensione reveal"><p class="recensione__testo">«Ottimo e velocissimo lavoro e calzolaio molto gentile! Ho appena perso il tacco facendo una passeggiata in piazza Duomo. Ho cercato il calzolaio più vicino su Google e ho trovato proprio il mio calzolaio salvatore! Grazie mille!»</p><p class="recensione__chi"><b>Linda Hammann</b> <span data-i18n="d.g4a">Google, 4 anni fa</span></p></li>
-      <li class="recensione reveal"><p class="recensione__testo">«Ottimo servizio, il ragazzo è gentile e nel mio caso è stato anche onesto nel consigliarmi, pensando anche alla convenienza economica per il cliente e non solo a favore del negozio. Consiglio!»</p><p class="recensione__chi"><b>Lorenzo Rongaroli</b> <span data-i18n="d.g4m">Google, 4 mesi fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Vado spesso (per far risuolare scarpe o sistemare tacchi) e mi sono sempre trovata bene. Lavori eseguiti bene e onestá nel dire se un lavoro vale la pena o no. Lo consiglio!»</p><p class="recensione__chi"><b>Angela</b> <span data-i18n="d.g2m">Google, 2 mesi fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Ottimo e velocissimo lavoro e calzolaio molto gentile! Ho appena perso il tacco facendo una passeggiata in piazza Duomo. Ho cercato il calzolaio più vicino su Google e ho trovato proprio il mio calzolaio salvatore! Grazie mille!»</p><p class="recensione__chi"><b>Linda Hammann</b> <span data-i18n="d.g4a">Google, 4 anni fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Ottimo servizio, il ragazzo è gentile e nel mio caso è stato anche onesto nel consigliarmi, pensando anche alla convenienza economica per il cliente e non solo a favore del negozio. Consiglio!»</p><p class="recensione__chi"><b>Lorenzo Rongaroli</b> <span data-i18n="d.g4m">Google, 4 mesi fa</span></p></li>
       <li class="recensione reveal"><p class="recensione__testo">«Mi ha risolto un'emergenza tacco in tre minuti, fantastico!»</p><p class="recensione__chi"><b>Alessandra Ferraris</b> <span data-i18n="d.g3a">Google, 3 anni fa</span></p></li>
-      <li class="recensione reveal"><p class="recensione__testo">«Veloci e onesti. Simpatico e gentilissimo il ragazzo che mi ha servito, da raccomandare! Menomale che alcune botteghe ancora esistono.»</p><p class="recensione__chi"><b>Su X Gio</b> <span data-i18n="d.g9m">Google, 9 mesi fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Veloci e onesti. Simpatico e gentilissimo il ragazzo che mi ha servito, da raccomandare! Menomale che alcune botteghe ancora esistono.»</p><p class="recensione__chi"><b>Su X Gio</b> <span data-i18n="d.g9m">Google, 9 mesi fa</span></p></li>
       <li class="recensione reveal"><p class="recensione__testo">«tacchi express per impiegate in difficoltà. top!»</p><p class="recensione__chi"><b>Greta Damancaunbraulio</b> <span data-i18n="d.g4a">Google, 4 anni fa</span></p></li>
     </ul>
     <p class="dicono__nota"><span data-i18n="d.nota">Dalle recensioni su Google, come sono state scritte. Anche la frase in alto viene da una recensione su Google.</span> <a href="https://www.google.com/maps/search/?api=1&amp;query=Il+Mio+Calzolaio%2C+Via+dell%27Unione+3%2C+20122+Milano" target="_blank" rel="noopener" data-i18n="d.tutte">Tutte le recensioni su Google</a></p>
@@ -222,7 +282,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
     <h2 id="doveT" class="capitolo__titolo" data-i18n="w.titolo">Fra Via Torino e il Duomo</h2>
     <div class="dove">
       <div class="cartina reveal">
-        <iframe title="Mappa: Il Mio Calzolaio, Via dell'Unione 3, Milano" data-i18n-title="w.mappa" src="https://maps.google.com/maps?q=Il%20Mio%20Calzolaio%2C%20Via%20dell%27Unione%203%2C%2020122%20Milano&amp;z=16&amp;output=embed" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="mappa-clic" data-mappa-clic style="--mappa-h: 400px"><template><iframe title="Mappa: Il Mio Calzolaio, Via dell'Unione 3, Milano" data-i18n-title="w.mappa" src="https://maps.google.com/maps?q=Il%20Mio%20Calzolaio%2C%20Via%20dell%27Unione%203%2C%2020122%20Milano&amp;z=16&amp;output=embed" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></template><div class="mappa-clic__velo"><a class="mappa-clic__btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Il+Mio+Calzolaio%2C+Via+dell%27Unione+3%2C+20122+Milano" target="_blank" rel="noopener">Mostra la mappa</a><p class="mappa-clic__nota">La mappa è di Google: aprendola, Google riceve il tuo indirizzo IP e può usare i suoi cookie.</p></div></div>
       </div>
       <div>
         <dl class="indirizzo">
@@ -258,7 +318,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
     <p class="piede__marchio" aria-hidden="true"><span>Il mio Calzolaio</span></p>
     <p class="piede__dove">Via dell'Unione 3, 20122 Milano · <a href="tel:+390280581099" class="intero">02 8058 1099</a></p>
     <p class="piede__orario" data-i18n="f2.orario">Lunedì 14–19 · martedì–venerdì 9–14 e 15–19 · sabato 9–14</p>
-    <p class="piede__cred" data-i18n="f2.cred">Sito dimostrativo realizzato da <a href="https://bespokestud.io" rel="noopener">Bespoke Studio</a> · la foto della vetrina è quella del loro punto Bounce; orari, voto e recensioni dalla loro scheda Google (settembre 2026), le loro parole dal cartello in vetrina, dai volantini e dal vecchio sito. Il tacchetto l'abbiamo disegnato noi.</p>
+    <p class="piede__cred" data-i18n="f2.cred">Sito dimostrativo realizzato da <a href="https://bespokestud.io" rel="noopener">Bespoke Studio</a> · <a href="privacy.html">Privacy</a> · la foto della vetrina è quella del loro punto Bounce; orari, voto e recensioni dalla loro scheda Google (settembre 2026), le loro parole dal cartello in vetrina, dai volantini e dal vecchio sito. Il tacchetto l'abbiamo disegnato noi.</p>
     <p><a class="piede__su" href="#inizio" data-i18n="f2.su">Torna su ↑</a></p>
   </div>
 </footer>
@@ -273,5 +333,6 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
   <img id="lightboxImg" src="" alt="">
 </div>
 
+<script src="js/mappa-clic.js?v=1" defer></script>
 </body>
 </html>
